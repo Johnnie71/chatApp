@@ -1,4 +1,4 @@
-const path = requie('path');
+const path = requrie('path');
 const express = require('express');
 
 const app = express();
