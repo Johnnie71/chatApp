@@ -1,12 +1,20 @@
 const socket = io();
 
-// socket.on('countUpdated', (count) => {
-//     console.log('Count has been updated!', count)
-// })
+//client side listens for a message and displays it 
+socket.on('message', (message) => {
+    console.log(message)
+})
 
-// const button = document.querySelector('#increment');
+//getting the form element
+const form = document.querySelector('#chatForm');
 
-// button.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     socket.emit('increment')
-// })
+//event listener to be able to send message on submit
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    //getting value for the input
+    const message = document.querySelector('#inputMessage').value;
+
+    //client side sends a message to the server upon submit
+    socket.emit('sendMessage', message)
+})
