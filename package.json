@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Johnnie71/chatApp/issues"
   },
-  "homepage": "https://github.com/Johnnie71/chatApp#readme"
+  "homepage": "https://github.com/Johnnie71/chatApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
