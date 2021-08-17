@@ -24,5 +24,7 @@ const location = document.querySelector('#send-location');
 location.addEventListener('click', (e) => {
     e.preventDefault();
 
-    
+    if(!navigator.geolocation){
+        return alert('Geolocation is not supported by your browser!')
+    }
 })
