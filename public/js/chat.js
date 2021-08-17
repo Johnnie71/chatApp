@@ -13,7 +13,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     //getting value for the input
-    const message = document.querySelector('#inputMessage').value;
+    const message = e.target.elements.message
 
     //client side sends a message to the server upon submit
     socket.emit('sendMessage', message)
