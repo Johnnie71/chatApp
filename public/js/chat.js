@@ -18,3 +18,11 @@ form.addEventListener('submit', (e) => {
     //client side sends a message to the server upon submit
     socket.emit('sendMessage', message)
 })
+
+const location = document.querySelector('#send-location');
+
+location.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    
+})
