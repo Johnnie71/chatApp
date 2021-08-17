@@ -30,6 +30,10 @@ sendLocation.addEventListener('click', (e) => {
     }
 
     navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position)
+        //client side emitting location with lat and long as an object to server
+        socket.emit('sendLocation', {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        });
     })
 })
