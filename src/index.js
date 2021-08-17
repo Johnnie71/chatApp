@@ -30,6 +30,7 @@ io.on('connection', (socket) => {
         io.emit('message', 'User has left!')
     })
 
+    //server listens to see if client side clicks to share location then shares with everyone
     socket.on('sendLocation', (location) => {
         console.log(location)
         io.emit('message', `Location: ${location.latitude}, ${location.longitude} ` )
