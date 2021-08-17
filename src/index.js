@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
 
     socket.on('sendLocation', (location) => {
         console.log(location)
-        // io.emit('message', `Location: ${location.latitude}, ${location.longitude} ` )
+        io.emit('message', `Location: ${location.latitude}, ${location.longitude} ` )
     })
 
 })
