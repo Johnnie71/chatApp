@@ -19,9 +19,9 @@ form.addEventListener('submit', (e) => {
     socket.emit('sendMessage', message)
 })
 
-const location = document.querySelector('#send-location');
+const sendLocation = document.querySelector('#send-location');
 
-location.addEventListener('click', (e) => {
+sendLocation.addEventListener('click', (e) => {
     e.preventDefault();
 
     // if browser does not support geolocation
