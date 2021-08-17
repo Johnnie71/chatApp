@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     //server listens to see if client side clicks to share location then shares with everyone
     socket.on('sendLocation', (location) => {
         console.log(location)
-        io.emit('message', `Location: ${location.latitude}, ${location.longitude} ` )
+        io.emit('message', `https://google.com/maps?q=${location.latitude},${location.longitude}` )
     })
 
 })
