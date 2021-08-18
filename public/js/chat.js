@@ -15,6 +15,7 @@ socket.on('message', (message) => {
 $form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    //disabling button so it cant repeat a send 
     $formButton.setAttribute('disabled', 'disabled')
 
     //getting value for the input
