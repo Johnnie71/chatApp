@@ -15,6 +15,8 @@ socket.on('message', (message) => {
 $form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    $formButton.setAttribute('disabled', 'disabled')
+
     //getting value for the input
     const message = e.target.elements.message.value
 
