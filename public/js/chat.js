@@ -16,8 +16,8 @@ form.addEventListener('submit', (e) => {
     const message = e.target.elements.message.value
 
     //client side sends a message to the server upon submit
-    socket.emit('sendMessage', message, () => {
-        console.log('the message was delivered!')
+    socket.emit('sendMessage', message, (message) => {
+        console.log('the message was delivered!', message)
     })
 })
 
