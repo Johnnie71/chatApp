@@ -24,8 +24,11 @@ $form.addEventListener('submit', (e) => {
     //client side sends a message to the server upon submit
     socket.emit('sendMessage', message, (message) => {
 
-        // enabling button after sending message
+        // enabling button after sending message then clearing input
         $formButton.removeAttribute('disabled');
+        $formInput.value = ""
+
+
         console.log('the message was delivered!', message)
     })
 })
