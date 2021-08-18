@@ -21,8 +21,9 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('message', 'A new user has joined!')
 
     //server listens for client side message and sends a universal message to all
-    socket.on('sendMessage', (message) => {
+    socket.on('sendMessage', (message, callback) => {
         io.emit('message', message);
+        callback("Delivered!")
     })
 
     //server listens to see if someone leaves the chat and lets the other users know!
