@@ -39,6 +39,8 @@ const sendLocation = document.querySelector('#send-location');
 sendLocation.addEventListener('click', (e) => {
     e.preventDefault();
 
+    sendLocation.setAttribute('disabled', 'disabled');
+
     // if browser does not support geolocation
     if(!navigator.geolocation){
         return alert('Geolocation is not supported by your browser!')
