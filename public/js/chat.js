@@ -24,7 +24,7 @@ $form.addEventListener('submit', (e) => {
     //client side sends a message to the server upon submit
     socket.emit('sendMessage', message, (message) => {
 
-        // enabling button after sending message then clearing input then focusing pointer
+        // enabling button after sending message then clearing input then focusing back on the input
         $formButton.removeAttribute('disabled');
         $formInput.value = "";
         $formInput.focus();
