@@ -8,11 +8,14 @@ const $sendLocation = document.querySelector('#send-location');
 const $messages = document.querySelector('#messages');
 
 //Templates
-const messageTemplate = document.querySelector('#message-template');
+const messageTemplate = document.querySelector('#message-template').innerHTML;
 
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
     console.log(message);
+    const html = Mustache.render(messageTemplate);
+    //inserting messages before the end of the template and inserting the HTML
+    $messages.insertAdjacentElement('beforeend', html);
 
 })
 
