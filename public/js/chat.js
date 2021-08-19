@@ -10,10 +10,11 @@ const $messages = document.querySelector('#messages');
 //Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML;
 
+
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
     console.log(message);
-    const html = Mustache.render(messageTemplate);
+    const html = Mustache.render(messageTemplate, {message});
     //inserting messages before the end of the template and inserting the HTML
     $messages.insertAdjacentHTML('beforeend', html);
 
