@@ -4,10 +4,12 @@ const socket = io();
 const $form = document.querySelector('#chatForm');
 const $formInput = $form.querySelector('input');
 const $formButton = $form.querySelector('button');
+const $messages = document.querySelector('#messages');
 
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
-    console.log(message)
+    console.log(message);
+
 })
 
 
