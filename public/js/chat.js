@@ -21,8 +21,10 @@ socket.on('message', (message) => {
 
 })
 
+// client side listening to server to send location
 socket.on('locationMessage', (url) => {
-    console.log(url);
+    const html = Mustache.render(locationTemplate, {url});
+    $messages.insertAdjacentHTML('beforeend', html);
 })
 
 
