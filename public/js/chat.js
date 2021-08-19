@@ -4,7 +4,10 @@ const socket = io();
 const $form = document.querySelector('#chatForm');
 const $formInput = $form.querySelector('input');
 const $formButton = $form.querySelector('button');
+const $sendLocation = document.querySelector('#send-location');
 const $messages = document.querySelector('#messages');
+
+//Templates
 
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
@@ -36,12 +39,12 @@ $form.addEventListener('submit', (e) => {
     })
 })
 
-const sendLocation = document.querySelector('#send-location');
 
-sendLocation.addEventListener('click', (e) => {
+
+$sendLocation.addEventListener('click', (e) => {
     e.preventDefault();
 
-    sendLocation.setAttribute('disabled', 'disabled');
+    $sendLocation.setAttribute('disabled', 'disabled');
 
     // if browser does not support geolocation
     if(!navigator.geolocation){
@@ -54,7 +57,7 @@ sendLocation.addEventListener('click', (e) => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }, () => {
-            sendLocation.removeAttribute('disabled');
+            $sendLocation.removeAttribute('disabled');
             console.log('Location shared!');
         });
     })
