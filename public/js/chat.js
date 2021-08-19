@@ -20,6 +20,10 @@ socket.on('message', (message) => {
 
 })
 
+socket.on('locationMessage', (url) => {
+    console.log(url);
+})
+
 
 //event listener to be able to send message on submit
 $form.addEventListener('submit', (e) => {
