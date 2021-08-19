@@ -8,6 +8,7 @@ const $sendLocation = document.querySelector('#send-location');
 const $messages = document.querySelector('#messages');
 
 //Templates
+const messageTemplate = document.querySelector('#message-template');
 
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
