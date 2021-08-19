@@ -15,7 +15,7 @@ socket.on('message', (message) => {
     console.log(message);
     const html = Mustache.render(messageTemplate);
     //inserting messages before the end of the template and inserting the HTML
-    $messages.insertAdjacentElement('beforeend', html);
+    $messages.insertAdjacentHTML('beforeend', html);
 
 })
 
