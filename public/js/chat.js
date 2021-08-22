@@ -26,8 +26,11 @@ socket.on('message', (message) => {
 })
 
 // client side listening to server to send location
-socket.on('locationMessage', (url) => {
-    const html = Mustache.render(locationTemplate, {url});
+socket.on('locationMessage', (message) => {
+    const html = Mustache.render(locationTemplate, {
+        url: message.url,
+        createdAt: moment(message.createdAt).format('h:mm a')
+    });
     $messages.insertAdjacentHTML('beforeend', html);
 })
 
