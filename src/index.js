@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
 
     //server listens to see if someone leaves the chat and lets the other users know!
     socket.on('disconnect', () => {
-        io.emit('message', 'User has left!')
+        io.emit('message', generateMessage('User has left!'))
     })
 
     //server listens to see if client side clicks to share location then shares with everyone
