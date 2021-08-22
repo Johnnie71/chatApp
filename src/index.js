@@ -15,7 +15,10 @@ app.use(express.static(publicDirectoryPath));
 
 io.on('connection', (socket) => {
     // send message to the current user 
-    socket.emit('message', 'Welcome!');
+    socket.emit('message', {
+        text: 'Welcome!',
+        createdAt: new Date().getTime()
+    });
 
     // sends message to every user but the current user
     socket.broadcast.emit('message', 'A new user has joined!')
