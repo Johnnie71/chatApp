@@ -19,11 +19,11 @@ io.on('connection', (socket) => {
     socket.emit('message', generateMessage('Welcome!'));
 
     // sends message to every user but the current user
-    socket.broadcast.emit('message', 'A new user has joined!')
+    socket.broadcast.emit('message', generateMessage('A new user has joined!'))
 
     //server listens for client side message and sends a universal message to all
     socket.on('sendMessage', (message, callback) => {
-        io.emit('message', message);
+        io.emit('message', generateMessage(message));
         callback("Delivered!")
     })
 
