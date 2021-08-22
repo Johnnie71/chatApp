@@ -15,7 +15,10 @@ const locationTemplate = document.querySelector('#location-template').innerHTML;
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
     console.log(message);
-    const html = Mustache.render(messageTemplate, {message});
+    const html = Mustache.render(messageTemplate, {
+        message: message.text
+    });
+
     //inserting messages before the end of the template and inserting the HTML
     $messages.insertAdjacentHTML('beforeend', html);
 
