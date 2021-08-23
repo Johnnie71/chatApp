@@ -37,3 +37,11 @@ addUser({
 })
 
 console.log(users)
+
+const res = addUser({
+    id: 33,
+    username: '',
+    room: ''
+});
+
+console.log(res)
