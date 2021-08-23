@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
         const { error, user } = addUser({ id: socket.id, username, room  });
 
         if(error){
-            callback(error)
+            return callback(error)
         }
 
         socket.join(room);
@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
         socket.emit('message', generateMessage('Welcome!'));
         socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined!`));
         
+        callback();
     })
 
     //server listens for client side message and sends a universal message to all
