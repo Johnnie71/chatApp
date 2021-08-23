@@ -26,10 +26,10 @@ io.on('connection', (socket) => {
             return callback(error)
         }
 
-        socket.join(room);
+        socket.join(user.room);
 
         socket.emit('message', generateMessage('Welcome!'));
-        socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined!`));
+        socket.broadcast.to(user.room).emit('message', generateMessage(`${user.username} has joined!`));
         
         callback();
     })
