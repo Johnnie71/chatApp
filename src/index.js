@@ -54,7 +54,9 @@ io.on('connection', (socket) => {
 
     //server listens to see if client side clicks to share location then shares with everyone
     socket.on('sendLocation', (location, callback) => {
-        io.emit('locationMessage', generateLocationMessage(`https://google.com/maps?q=${location.latitude},${location.longitude}`));
+        const user = getUser(socket.id);
+
+        io.to(user.room).emit('locationMessage', generateLocationMessage(`https://google.com/maps?q=${location.latitude},${location.longitude}`));
         callback()
     })
 
