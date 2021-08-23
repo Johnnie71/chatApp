@@ -20,6 +20,12 @@ io.on('connection', (socket) => {
     // sends message to every user but the current user
 
     socket.on('join', ({username, room}) => {
+        const { error, user } = addUser({ id: socket.id, username, room  });
+
+        if(error){
+            
+        }
+
         socket.join(room);
 
         socket.emit('message', generateMessage('Welcome!'));
