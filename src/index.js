@@ -19,11 +19,11 @@ io.on('connection', (socket) => {
     // send message to the current user 
     // sends message to every user but the current user
 
-    socket.on('join', ({username, room}) => {
+    socket.on('join', ({username, room}, callback) => {
         const { error, user } = addUser({ id: socket.id, username, room  });
 
         if(error){
-            
+            callback(error)
         }
 
         socket.join(room);
