@@ -29,3 +29,11 @@ const addUser = ({ id, username, room }) => {
     users.push(user);
     return { user }
 }
+
+addUser({
+    id: 22,
+    username: 'Johnnie',
+    room: 'NYC'
+})
+
+console.log(users)
