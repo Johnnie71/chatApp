@@ -31,6 +31,7 @@ socket.on('message', (message) => {
 // client side listening to server to send location
 socket.on('locationMessage', (message) => {
     const html = Mustache.render(locationTemplate, {
+        username: message.username,
         url: message.url,
         createdAt: moment(message.createdAt).format('h:mm a')
     });
