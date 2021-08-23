@@ -11,6 +11,9 @@ const $messages = document.querySelector('#messages');
 const messageTemplate = document.querySelector('#message-template').innerHTML;
 const locationTemplate = document.querySelector('#location-template').innerHTML;
 
+//Options
+Qs.parse(location.search, { ignoreQueryPrefix: true })
+
 
 //client side listens for a message and displays it 
 socket.on('message', (message) => {
