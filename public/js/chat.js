@@ -86,4 +86,6 @@ $sendLocation.addEventListener('click', (e) => {
 })
 
 //sending username and room to server from the login
-socket.emit('join', { username, room })
+socket.emit('join', { username, room }, (error) => {
+    
+})
