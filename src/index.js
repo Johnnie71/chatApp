@@ -28,8 +28,8 @@ io.on('connection', (socket) => {
 
     //server listens for client side message and sends a universal message to all
     socket.on('sendMessage', (message, callback) => {
-        io.emit('message', generateMessage(message));
-        callback("Delivered!")
+        io.to('NYC').emit('message', generateMessage(message));
+        callback()
     })
 
     //server listens to see if someone leaves the chat and lets the other users know!
