@@ -12,18 +12,17 @@
 
             </div>
             <div class='chat__main'>
+                <div id="messages"></div>
 
+                <form id="chatForm">
+                    <input name="message" id="inputMessage" placeholder="Chat Message" />
+                    <button>Send</button>
+                </form>
+                <button id="send-location">Send Location</button>
             </div>
         </div>
         Chat App <br><br>
 
-        <div id="messages"></div>
-
-        <form id="chatForm">
-            <input name="message" id="inputMessage" placeholder="Chat Message" />
-            <button>Send</button>
-        </form>
-        <button id="send-location">Send Location</button>
 
         <script id="message-template" type="text/html" >
                 <div>
