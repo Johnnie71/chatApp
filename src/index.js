@@ -36,7 +36,8 @@ io.on('connection', (socket) => {
 
     //server listens for client side message and sends a universal message to all
     socket.on('sendMessage', (message, callback) => {
-        io.to('NYC').emit('message', generateMessage(message));
+        const user = getUser(socket.id);
+        io.to(user.room).emit('message', generateMessage(message));
         callback()
     })
 
