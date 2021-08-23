@@ -65,10 +65,9 @@ addUser({
     room: 'PR'
 })
 
-const userList = getUsersInRoom('NYC');
-
-console.log(userList)
-
-
-
-// console.log(getUser(22));
+module.exports = {
+    addUser,
+    removeUser,
+    getUser,
+    getUsersInRoom
+}
