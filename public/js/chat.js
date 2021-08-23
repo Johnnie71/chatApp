@@ -12,7 +12,7 @@ const messageTemplate = document.querySelector('#message-template').innerHTML;
 const locationTemplate = document.querySelector('#location-template').innerHTML;
 
 //Options
-Qs.parse(location.search, { ignoreQueryPrefix: true })
+const {username, room} = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 
 //client side listens for a message and displays it 
@@ -84,3 +84,6 @@ $sendLocation.addEventListener('click', (e) => {
         });
     })
 })
+
+//sending username and room to server from the login
+socket.emit('join', { username, room })
