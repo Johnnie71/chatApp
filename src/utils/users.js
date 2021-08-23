@@ -65,8 +65,6 @@ addUser({
     room: 'PR'
 })
 
-console.log(users)
-
 const userList = getUsersInRoom('NYC');
 
 console.log(userList)
