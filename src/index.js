@@ -28,8 +28,8 @@ io.on('connection', (socket) => {
 
         socket.join(user.room);
 
-        socket.emit('message', generateMessage('Welcome!'));
-        socket.broadcast.to(user.room).emit('message', generateMessage(`${user.username} has joined!`));
+        socket.emit('message', generateMessage('Admin', 'Welcome!'));
+        socket.broadcast.to(user.room).emit('message', generateMessage('Admin',`${user.username} has joined!`));
         
         callback();
     })
