@@ -13,7 +13,31 @@ const locationTemplate = document.querySelector('#location-template').innerHTML;
 const sidebarTemplate = document.querySelector('#sidebar_template').innerHTML;
 
 //Options
-const {username, room} = Qs.parse(location.search, { ignoreQueryPrefix: true })
+const {username, room} = Qs.parse(location.search, { ignoreQueryPrefix: true });
+
+const autoscroll = () => {
+    // New message element
+    const $newMessage = $messages.lastElementChild;
+
+    //Grab the new message
+    const newMessageStyles = getComputedStyle($newMessage);
+    //Getting the margin bottom value
+    const newMessageMargin = parseInt(newMessageStyles.marginBottom);
+    const newMessageHeight = $newMessage.offsetHeight + newMessageMargin;
+
+    //visible height
+    const visibleHeight = $messages.offsetHeight;
+
+    //Height of messages container
+    const containerHeight = $messages.scrollHeight;
+
+    // How far have I scrolled
+    const scrollOffset = $messages.scrollTop + visibleHeight
+
+    if(containerHeight - newMessageHeight <= scrollOffset){
+        
+    }
+}
 
 
 //client side listens for a message and displays it 
@@ -27,7 +51,7 @@ socket.on('message', (message) => {
 
     //inserting messages before the end of the template and inserting the HTML
     $messages.insertAdjacentHTML('beforeend', html);
-
+    autoscroll();
 })
 
 // client side listening to server to send location
@@ -38,6 +62,7 @@ socket.on('locationMessage', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     });
     $messages.insertAdjacentHTML('beforeend', html);
+    autoscroll();
 })
 
 socket.on('roomData', ({ room, users }) => {
