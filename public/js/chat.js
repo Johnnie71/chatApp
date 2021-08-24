@@ -45,6 +45,8 @@ socket.on('roomData', ({ room, users }) => {
         room,
         users
     });
+    document.querySelector('#sidebar').innerHTML = html;
+
 })
 
 
