@@ -39,6 +39,11 @@ socket.on('locationMessage', (message) => {
     $messages.insertAdjacentHTML('beforeend', html);
 })
 
+socket.on('roomData', ({ room, users }) => {
+    console.log(room);
+    console.log(users);
+})
+
 
 //event listener to be able to send message on submit
 $form.addEventListener('submit', (e) => {
